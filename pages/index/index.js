@@ -72,9 +72,6 @@ Page({
   onReachBottom() {
     // 页面被拉到底部
     let allPage = Math.ceil(this.data.newsTotal / 10)
-    console.log(allPage)
-    console.log(this.data.newsPage)
-
     if (allPage < this.data.newsPage) {
       //已经加载完成
 
