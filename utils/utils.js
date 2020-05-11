@@ -4,6 +4,7 @@ var api = {}
 
 api.get_types = IP + 'DingTalkNews/GetTypes'
 api.get_news = IP + 'DingTalkNews/GetNews'
+api.get_new = IP+'DingTalkNews/GetNew?id='
 console.log(api.get_types)
 //ajax
 function callAPI(url,method, data, calback, noshow) {

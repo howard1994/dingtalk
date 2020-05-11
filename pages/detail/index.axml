@@ -1,0 +1,3 @@
+<import src="../../component/aParse/aParse.axml"/>
+
+<template is="aParse" data="{{aParseData:new.nodes}}"/>

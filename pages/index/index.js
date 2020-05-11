@@ -68,6 +68,7 @@ Page({
         newsTotal: res.totalCount
       })
     })
+    
   },
   onReachBottom() {
     // 页面被拉到底部
@@ -84,7 +85,7 @@ Page({
       const o = this.requestParamter(_this.data.newsPage, 10, _this.data.activeId);
       common.callAPI(o.url, "POST", o.para, function (res) {
         _this.setData({
-          newsList: [..._this.data.newsList,...res.data],
+          newsList: [..._this.data.newsList, ...res.data],
           newsTotal: res.totalCount
         })
       })
@@ -96,6 +97,7 @@ Page({
     const index = e.currentTarget.id;
     _this.setData({
       activeId: index,
+      newsPage:1,
     })
     const o = this.requestParamter(1, 10, index);
     common.callAPI(o.url, "POST", o.para, function (res) {
@@ -119,8 +121,10 @@ Page({
   imageLoad: function (e) {
     //console.log('image 加载成功', e);
   },
-  newsDetail() {
-    console.log("查看详情")
+  newsDetail(e) {
+    dd.navigateTo({           // 关闭当前页面，跳转到应用内的某个指定页面。
+      url: '/pages/detail/index?id='+e.currentTarget.dataset.id
+    })
   },
   //请求参数封装
   requestParamter(page, pageSize, id) {

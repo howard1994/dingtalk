@@ -4,7 +4,7 @@
     <view a:for="{{cateList}}" id="{{item.id}}" onTap="switchTap" class="choose {{activeId==item.id?'cate-tab-item active':'cate-tab-item'}}">{{item.name}}</view>
   </scroll-view>
   <scroll-view scroll-y class="new-list-warp">
-    <view a:for="{{newsList}}" class="list-item-warp" onTap="newsDetail">
+    <view a:for="{{newsList}}" class="list-item-warp" onTap="newsDetail" data-id='{{item.id}}'>
       <view class="list-item">
         <image class="item-img" src='{{item.image}}' model='aspectFit' onError="imageError" onLoad="imageLoad"/>
         <view class="item-content">
