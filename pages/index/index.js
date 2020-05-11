@@ -86,13 +86,10 @@ Page({
       })
       const o = this.requestParamter(_this.data.newsPage, 10, _this.data.activeId);
       common.callAPI(o.url, "POST", o.para, function (res) {
-        console.log(res.data);
         _this.setData({
-          newsList: Object.assign(res.data, _this.data.newsList),
+          newsList: [..._this.data.newsList,...res.data],
           newsTotal: res.totalCount
         })
-        console.log(_this.data.newsList);
-
       })
 
     }
