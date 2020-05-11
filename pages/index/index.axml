@@ -1,0 +1,29 @@
+<view>
+  <scroll-view scroll-x class="cate-tab">
+    <view id="0" class="choose {{activeId==0?'cate-tab-item active':'cate-tab-item'}}" onTap="switchTap">全部</view>
+    <view a:for="{{cateList}}" id="{{item.id}}" onTap="switchTap" class="choose {{activeId==item.id?'cate-tab-item active':'cate-tab-item'}}">{{item.name}}</view>
+  </scroll-view>
+  <scroll-view scroll-y class="new-list-warp">
+    <view a:for="{{newsList}}" class="list-item-warp" onTap="newsDetail">
+      <view class="list-item">
+        <image class="item-img" src='{{item.image}}' model='aspectFit' onError="imageError" onLoad="imageLoad"/>
+        <view class="item-content">
+          <view class="item-title clearfix">
+            <view class="title-text">
+              {{item.title}}
+            </view>
+            <view class="title-time">
+              {{item.createTime}}
+            </view>
+          </view>
+          <view class="item-text text-ellipsis-2">
+            {{item.title}}
+          </view>
+          <view class="item-footer clearfix">
+            <view class="item-cate">{{item.dingClassify.name}}</view>
+            <view class="item-author">{{item.editer}}</view>
+          </view>
+        </view>
+      </view>
+      </scroll-view>
+    </view>
