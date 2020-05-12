@@ -122,6 +122,7 @@ Page({
     //console.log('image 加载成功', e);
   },
   newsDetail(e) {
+    console.log(e)
     dd.navigateTo({           // 关闭当前页面，跳转到应用内的某个指定页面。
       url: '/pages/detail/index?id='+e.currentTarget.dataset.id
     })
