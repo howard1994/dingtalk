@@ -67,8 +67,8 @@ Page({
         newsList: res.data,
         newsTotal: res.totalCount
       })
+      dd.stopPullDownRefresh;
     })
-    
   },
   onReachBottom() {
     // 页面被拉到底部
@@ -97,7 +97,7 @@ Page({
     const index = e.currentTarget.id;
     _this.setData({
       activeId: index,
-      newsPage:1,
+      newsPage: 1,
     })
     const o = this.requestParamter(1, 10, index);
     common.callAPI(o.url, "POST", o.para, function (res) {
@@ -124,7 +124,7 @@ Page({
   newsDetail(e) {
     console.log(e)
     dd.navigateTo({           // 关闭当前页面，跳转到应用内的某个指定页面。
-      url: '/pages/detail/index?id='+e.currentTarget.dataset.id
+      url: '/pages/detail/index?id=' + e.currentTarget.dataset.id
     })
   },
   //请求参数封装
