@@ -6,7 +6,8 @@
   <scroll-view scroll-y class="new-list-warp">
     <view a:for="{{newsList}}" class="list-item-warp" onTap="newsDetail" data-id='{{item.id}}'>
       <view class="list-item">
-        <image class="item-img" src='{{item.image}}' model='aspectFit' onError="imageError" onLoad="imageLoad"/>
+        <image a:if="{{item.image}}" class="item-img" src='{{item.image}}' model='aspectFit' onError="imageError" onLoad="imageLoad"/>
+        <view a:else class="item-img" onLoad="imageLoad">暂无图片</view>
         <view style="flex: 2 1 auto" class="item-content">
           <view class="item-title clearfix">
             <view class="title-text">
@@ -25,5 +26,6 @@
           </view>
         </view>
       </view>
-      </scroll-view>
     </view>
+  </scroll-view>
+</view>
