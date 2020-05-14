@@ -11,10 +11,12 @@ Page({
     newsTotal: 1,
     activeId: 0,
   },
-  onShow() {
-    // 页面显示
+  onReady() {
     this.typeData()
     this.loadData()
+  },
+  onShow() {
+    // 页面显示
   },
   loadData() {
     let _this = this;
@@ -24,7 +26,15 @@ Page({
       "order": {
         "columnName": "createTime",
         "reverse": true
-      }
+      },
+      "query": [
+        {
+          "key": "Status",
+          "binaryop": "eq",
+          "value": 1,
+          "andorop": "and"
+        }
+      ]
     };
     common.callAPI(common.api.get_news, "POST", o, function (res) {
       _this.setData({
@@ -122,7 +132,6 @@ Page({
     //console.log('image 加载成功', e);
   },
   newsDetail(e) {
-    console.log(e)
     dd.navigateTo({           // 关闭当前页面，跳转到应用内的某个指定页面。
       url: '/pages/detail/index?id=' + e.currentTarget.dataset.id
     })
@@ -136,7 +145,15 @@ Page({
       "order": {
         "columnName": "createTime",
         "reverse": true
-      }
+      },
+      "query": [
+        {
+          "key": "Status",
+          "binaryop": "eq",
+          "value": 1,
+          "andorop": "and"
+        }
+      ]
     }
     if (id && id != 0) {
       url += '?id=' + id;
