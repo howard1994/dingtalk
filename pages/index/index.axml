@@ -7,21 +7,21 @@
     <view a:for="{{newsList}}" class="list-item-warp" onTap="newsDetail" data-id='{{item.id}}'>
       <view class="list-item">
         <image class="item-img" src='{{item.image}}' model='aspectFit' onError="imageError" onLoad="imageLoad"/>
-        <view class="item-content">
+        <view style="flex: 2 1 auto" class="item-content">
           <view class="item-title clearfix">
             <view class="title-text">
               {{item.title}}
             </view>
-            <view class="title-time">
-              {{item.createTime}}
-            </view>
+            <view class="item-author">{{item.editer}}</view>
           </view>
           <view class="item-text text-ellipsis-2">
-            {{item.title}}
+            {{item.subTitle}}
           </view>
           <view class="item-footer clearfix">
             <view class="item-cate">{{item.dingClassify.name}}</view>
-            <view class="item-author">{{item.editer}}</view>
+            <view class="title-time">
+              {{item.createTime}}
+            </view>
           </view>
         </view>
       </view>
