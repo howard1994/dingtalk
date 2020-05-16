@@ -1,8 +1,8 @@
 @import "../../component/aParse/aParse.acss";
 .detils-warp{
-    padding: 28rpx;
+    padding: 20rpx;
     height: 100vh;
     background: #fff;
-    font-size: 24rpx;
-    line-height: 48rpx;
+    font-size: 36rpx;
+    line-height: 60rpx;
 }
