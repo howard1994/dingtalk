@@ -71,13 +71,12 @@ Page({
       newsPage: 1,
     })
     const o = this.requestParamter(_this.data.newsPage, 10, _this.data.activeId);
-
     common.callAPI(o.url, "POST", o.para, function (res) {
+      dd.stopPullDownRefresh();
       _this.setData({
         newsList: res.data,
         newsTotal: res.totalCount
       })
-      dd.stopPullDownRefresh;
     })
   },
   onReachBottom() {
@@ -85,7 +84,7 @@ Page({
     let allPage = Math.ceil(this.data.newsTotal / 10)
     if (allPage < this.data.newsPage) {
       //已经加载完成
-
+      common.tips('没有更多了')
     }
     else {
       let _this = this;

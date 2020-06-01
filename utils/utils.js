@@ -32,10 +32,10 @@ function callAPI(url,method, data, calback, noshow) {
       }
     },
     fail: function(res) {
-      tips(res)
+      tips(res.data.msg)
     },
     complete: function(res) {
-      tips(res)
+      tips(res.data.msg)
     }
   });
 
