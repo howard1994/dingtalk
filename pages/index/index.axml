@@ -8,16 +8,14 @@
       <view class="list-item">
         <image a:if="{{item.image}}" class="item-img" src='{{item.image}}' model='aspectFit' onError="imageError" onLoad="imageLoad"/>
         <view a:else class="item-img" onLoad="imageLoad">暂无图片</view>
-        <view style="flex: 2 1 auto" class="item-content">
-          <view class="item-title clearfix">
-            <view class="title-text">
-              {{item.title}}
-            </view>
-            <view class="item-author">{{item.editer}}</view>
+        <view class="item-content">
+          <view class="item-title text-ellipsis-1">
+          {{item.title}}
           </view>
           <view class="item-text text-ellipsis-2">
             {{item.subTitle}}
           </view>
+            <view class="item-author">{{item.editer}}</view>
           <view class="item-footer clearfix">
             <view class="item-cate">{{item.dingClassify.name}}</view>
             <view class="title-time">

@@ -55,23 +55,22 @@
     margin-right: 15rpx;
 }
 
+.item-content{
+    flex:1;
+}
 .new-list-warp .list-item .item-title {
     font-size: 32rpx;
     line-height: 48rpx;
     padding: 15rpx 0 10rpx 0;
-    height: 48rpx
-}
-
-.new-list-warp .list-item .item-title .title-text {
+    height: 40rpx;
     text-align: left;
-    float: left;
 }
 
-.new-list-warp .list-item .item-title .item-author {
+
+.new-list-warp .list-item .item-author {
     text-align: right;
-    float: right;
     font-size: 24rpx;
-    color: #333
+    color: #333;
 }
 
 .new-list-warp .list-item .item-text {

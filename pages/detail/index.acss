@@ -1,8 +1,83 @@
 @import "../../component/aParse/aParse.acss";
 .detils-warp{
     padding: 30rpx;
-    height: 100vh;
     background: #fff;
     font-size: 36rpx;
     line-height: 60rpx;
+}
+.detils-warp .detils-title{
+    font-size:40rpx;
+    font-weight: bold;
+    text-align: center;
+}
+.detils-warp .detils-title{
+    font-size:40rpx;
+    font-weight: bold;
+    text-align: center;
+}
+.detils-warp  .detils-subTitle{
+    font-size: 24rpx;
+    color:#333;
+}
+/* 评论列表 */
+.comment-warp{
+    width: 100%;
+    background: #ececec;
+}
+.comment-item{
+    width: 100%;
+    margin-bottom: 10rpx;
+    padding: 15rpx 0rpx;
+    display: flex;
+    flex-flow:nowrap;
+    background: #fff;
+    justify-content: space-between ;
+}
+.item-img{
+    width: 80rpx;
+    height: 80rpx;
+}
+.item-img  image{
+    width: 80%;
+    height: 80%;
+}
+.item-content{
+    flex:1;
+}
+.item-content .item-info{
+    width: 100%;
+    display: flex;
+    justify-content : space-between;
+}
+.item-info .item-name{
+    font-size: 28rpx;
+    line-height: 64rpx;
+    color: #333;
+}
+.item-info .item-time{
+    font-size: 24rpx;
+    line-height: 64rpx;
+    color: #666;
+}
+.content-text{
+    font-size: 24rpx;
+    line-height: 48rpx;
+    color: #666;
+}
+.fix-btn-warp{
+    position: fixed;
+    height: 80rpx;
+    width:80rpx;
+    bottom: 20%;
+    right:5rpx;
+    background:#fff;
+    border-radius: 30%
+}
+.fix-btn-warp image{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top:50%;
+    right: 50%;
+    transform: translate(50%,-50%)
 }

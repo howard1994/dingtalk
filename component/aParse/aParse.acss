@@ -57,7 +57,6 @@ view{
 
 .aParse-i,.aParse-cite,.aParse-em,.aParse-var,.aParse-address{font-style:italic}
 .aParse-pre,.aParse-tt,.aParse-code,.aParse-kbd,.aParse-samp{font-family:monospace}
-.aParse-pre{white-space:pre}
 .aParse-big{font-size:1.17em}
 .aParse-small,.aParse-sub,.aParse-sup{font-size:.83em}
 .aParse-sub{vertical-align:sub}

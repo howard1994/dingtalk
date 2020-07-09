@@ -8,6 +8,15 @@
 .clearfix{
     *zoom: 1;
 }
+.text-ellipsis-1{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .text-ellipsis-2{
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;

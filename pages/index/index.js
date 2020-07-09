@@ -10,6 +10,8 @@ Page({
     newsPage: 1,
     newsTotal: 1,
     activeId: 0,
+    // 大分类id 1为龙祁新闻 2为龙祁文化
+    cateId:2,
   },
   onReady() {
     this.typeData()
@@ -20,23 +22,11 @@ Page({
   },
   loadData() {
     let _this = this;
-    let o = {
-      "pageNum": _this.newsPage,
-      "pageSize": 10,
-      "order": {
-        "columnName": "createTime",
-        "reverse": true
-      },
-      "query": [
-        {
-          "key": "Status",
-          "binaryop": "eq",
-          "value": 1,
-          "andorop": "and"
-        }
-      ]
-    };
-    common.callAPI(common.api.get_news, "POST", o, function (res) {
+    _this.setData({
+      newsPage: 1,
+    })
+    const o = this.requestParamter(_this.data.newsPage, 10,_this.data.cateId , _this.data.activeId);
+    common.callAPI(o.url, "POST", o.para, function (res) {
       _this.setData({
         newsList: res.data,
         newsTotal: res.totalCount
@@ -46,23 +36,13 @@ Page({
   typeData() {
     let _this = this;
     let o = {};
-    common.callAPI(common.api.get_types, "POST", o, function (res) {
+    let url = common.api.get_types+'?classId='+_this.data.cateId;
+    common.callAPI(url, "POST", o, function (res) {
       _this.setData({
         cateList: res.data,
         cateTotal: res.totalCount
       })
     })
-  },
-  onHide() {
-    // 页面隐藏
-  },
-  onUnload() {
-    // 页面被关闭
-  },
-  onTitleClick() {
-    // 标题被点击
-    console.log("标题被点击")
-
   },
   onPullDownRefresh() {
     // 页面被下拉
@@ -70,7 +50,7 @@ Page({
     _this.setData({
       newsPage: 1,
     })
-    const o = this.requestParamter(_this.data.newsPage, 10, _this.data.activeId);
+    const o = this.requestParamter(_this.data.newsPage, 10,_this.data.cateId , _this.data.activeId);
     common.callAPI(o.url, "POST", o.para, function (res) {
       dd.stopPullDownRefresh();
       _this.setData({
@@ -82,7 +62,7 @@ Page({
   onReachBottom() {
     // 页面被拉到底部
     let allPage = Math.ceil(this.data.newsTotal / 10)
-    if (allPage < this.data.newsPage) {
+    if (allPage <= this.data.newsPage) {
       //已经加载完成
       common.tips('没有更多了')
     }
@@ -91,7 +71,7 @@ Page({
       _this.setData({
         newsPage: _this.data.newsPage + 1,
       })
-      const o = this.requestParamter(_this.data.newsPage, 10, _this.data.activeId);
+      const o = this.requestParamter(_this.data.newsPage, 10,_this.data.cateId , _this.data.activeId);
       common.callAPI(o.url, "POST", o.para, function (res) {
         _this.setData({
           newsList: [..._this.data.newsList, ...res.data],
@@ -108,7 +88,7 @@ Page({
       activeId: index,
       newsPage: 1,
     })
-    const o = this.requestParamter(1, 10, index);
+    const o = this.requestParamter(1, 10,_this.data.cateId , index);
     common.callAPI(o.url, "POST", o.para, function (res) {
       _this.setData({
         newsList: res.data,
@@ -120,7 +100,7 @@ Page({
     // 返回自定义分享信息
     return {
       title: '龙祁文化',
-      desc: '新闻中心',
+      desc: '龙祁文化',
       path: 'pages/index/index',
     };
   },
@@ -136,8 +116,10 @@ Page({
     })
   },
   //请求参数封装
-  requestParamter(page, pageSize, id) {
-    let url = common.api.get_news;
+  requestParamter(page, pageSize, classId,classifyid) {
+    // classId为大分类id
+    // classifyid 为小分类id
+    let url = common.api.get_news + '?classId=' +classId ;
     let o = {
       "pageNum": page,
       "pageSize": pageSize,
@@ -154,9 +136,10 @@ Page({
         }
       ]
     }
-    if (id && id != 0) {
-      url += '?id=' + id;
+    if (classifyid && classifyid != 0) {
+      url += '&classifyid=' + classifyid;
     }
+    console.log(url)
     return { 'para': o, 'url': url };
   }
 });
