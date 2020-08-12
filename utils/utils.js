@@ -4,11 +4,11 @@ var api = {}
 var accessToken = "";
 var authCode = "";
 // 新闻中心
-// var appKey = "dingch545aqm5h0u3oyi";
-// var Appsecret = "wspOzjQ6oHDedhJEoY8FLHGQpo32Ixg3nkBUfo9ssCIJKy_3IZrOsE5gWIsmAWih"
-// 龙祁文化
-var appKey = "ding1tbbr1zihdwbuqbi";
-var Appsecret = "yvePlut5sMEnCig_cB5QDSAsXldex0HUCpB3AtVWpPrEk9EeRqqu6cXAZaKRR1Ry"
+var appKey = "dingch545aqm5h0u3oyi";
+var Appsecret = "wspOzjQ6oHDedhJEoY8FLHGQpo32Ixg3nkBUfo9ssCIJKy_3IZrOsE5gWIsmAWih"
+// // 龙祁文化
+// var appKey = "ding1tbbr1zihdwbuqbi";
+// var Appsecret = "yvePlut5sMEnCig_cB5QDSAsXldex0HUCpB3AtVWpPrEk9EeRqqu6cXAZaKRR1Ry"
 
 
 api.get_types = IP + 'DingTalkNews/GetTypes'

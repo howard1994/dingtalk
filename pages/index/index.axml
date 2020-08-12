@@ -19,7 +19,7 @@
           <view class="item-footer clearfix">
             <view class="item-cate">{{item.dingClassify.name}}</view>
             <view class="title-time">
-              {{item.createTime}}
+              {{item.updateTime}}
             </view>
           </view>
         </view>

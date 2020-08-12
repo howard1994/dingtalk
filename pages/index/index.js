@@ -11,7 +11,7 @@ Page({
     newsTotal: 1,
     activeId: 0,
     // 大分类id 1为龙祁新闻 2为龙祁文化
-    cateId:2,
+    cateId:1,
   },
   onReady() {
     this.typeData()
